@@ -27,12 +27,12 @@ namespace SocialPoint.Examples.MVC
             // Set the alpha to cero so the item is created
             // invisible. When the show method is called
             // the view will be made visible using a transition.
-#if UNITY_EDITOR
-            if (UnityEditor.EditorApplication.isPlaying)
-                UpdateAlpha(0);
-#else
-            ViewRoot.alpha = 0f;
-#endif
+//#if UNITY_EDITOR
+//            if (UnityEditor.EditorApplication.isPlaying)
+//                UpdateAlpha(0);
+//#else
+//            ViewRoot.alpha = 0f;
+//#endif
 
             AwakeUnityMsg();
         }
@@ -134,7 +134,7 @@ namespace SocialPoint.Examples.MVC
 
         public virtual void Show()
         {
-            UpdateAlpha(1f);
+            //UpdateAlpha(1f);
 
             if(ViewDidShow != null)
             {
@@ -144,7 +144,7 @@ namespace SocialPoint.Examples.MVC
 
         public virtual void Hide()
         {
-            UpdateAlpha(0);
+            //UpdateAlpha(0);
 
             if(ViewDidHide != null)
             {

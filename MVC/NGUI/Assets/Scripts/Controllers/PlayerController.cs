@@ -13,14 +13,18 @@ namespace SocialPoint.Examples.MVC
         public PlayerController()
         {
             MainGUI = CreateView("MainGUI").GetComponent<MainGUIViewPresenter>();
+            #region view 事件
 
             MainGUI.AddXpButton.Clicked += (s, e) => Player.AddXp(50);
             MainGUI.AddXpButton.Clicked += (s, e) => Debug.Log("Adding XP points");
 
             MainGUI.TakeDamageButton.Clicked += (s, e) => Player.TakeDamage(75);
             MainGUI.TakeDamageButton.Clicked += (s, e) => Debug.Log("Player took damage!");
+            #endregion view 事件
 
             Player = new PlayerModel();
+            #region Model 事件
+            
             Player.XPGained += OnPlayerGainedXP;
             Player.LevelUp += OnPlayerLevelUp;
             Player.LevelUp += (s,e) => Debug.Log("Player leveled up!");
@@ -29,6 +33,8 @@ namespace SocialPoint.Examples.MVC
 
             Player.Died += (s, e) => UpdatePlayerDeadUI();
             Player.Died += (s, e) => Debug.Log("Player is dead");
+
+            #endregion Model 事件
 
             UpdateLevelAndXPUI();
             UpdateHitPointsUI();
